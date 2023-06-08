@@ -50,12 +50,14 @@
       <q-card style="width: auto">
         <q-expansion-item label="Характеристики товара">
           <q-card-section>
+            
             <q-list class="product-item">
               <span>Артикул:</span>
               <span>
                 {{ data.article }}
               </span>
             </q-list>
+
             <q-list class="product-item">
               <span>Объем:</span>
               <span>
