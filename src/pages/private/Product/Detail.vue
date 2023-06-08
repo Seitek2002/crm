@@ -51,7 +51,64 @@
         <q-expansion-item label="Характеристики товара">
           <q-card-section>
             <q-list class="product-item">
-              
+              <span>Артикул:</span>
+              <span>
+                {{ data.article }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Объем:</span>
+              <span>
+                {{ data.volume }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Вес:</span>
+              <span>
+                {{ data.weight }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Налоговая система:</span>
+              <span>
+                {{ data.tax_system }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Атрибут платежа:</span>
+              <span>
+                {{ data.payment_attribute }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Цена продажи:</span>
+              <span>
+                {{ data.selling_price }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Штрихкод:</span>
+              <span>
+                {{ data.barcode }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Название штрихкода:</span>
+              <span>
+                {{ data.barcode_name }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Внешний код:</span>
+              <span>
+                {{ data.external_code }}
+              </span>
+            </q-list>
+            <q-list class="product-item">
+              <span>Kод:</span>
+              <span>
+                {{ data.code }}
+              </span>
             </q-list>
           </q-card-section>
         </q-expansion-item>
