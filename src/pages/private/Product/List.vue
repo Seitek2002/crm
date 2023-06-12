@@ -42,6 +42,132 @@
               </q-item>
             </template>
           </q-select>
+          <q-select
+            filled
+            input-debounce="0"
+            style="width: 49%"
+            option-value="value"
+            option-label="label"
+            label="Поставщик"
+            :options="suppliers"
+            v-model="supplierVal"
+            use-input
+            emit-value
+          >
+            <template v-slot:no-option>
+              <q-item>
+                <q-item-section class="text-grey">No results</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
+          <q-select
+            filled
+            input-debounce="0"
+            style="width: 49%"
+            option-value="value"
+            option-label="label"
+            label="Единица измерения"
+            :options="weights"
+            v-model="weightVal"
+            use-input
+            emit-value
+          >
+            <template v-slot:no-option>
+              <q-item>
+                <q-item-section class="text-grey">No results</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
+          <q-select
+            filled
+            input-debounce="0"
+            style="width: 49%"
+            option-value="value"
+            option-label="label"
+            label="НДС"
+            :options="barcode_names"
+            v-model="barcode_nameVal"
+            use-input
+            emit-value
+          >
+            <template v-slot:no-option>
+              <q-item>
+                <q-item-section class="text-grey">No results</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
+          <q-select
+            filled
+            input-debounce="0"
+            style="width: 49%"
+            option-value="value"
+            option-label="label"
+            label="Особенности учета"
+            :options="accountings"
+            v-model="accountingVal"
+            use-input
+            emit-value
+          >
+            <template v-slot:no-option>
+              <q-item>
+                <q-item-section class="text-grey">No results</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
+          <q-select
+            filled
+            input-debounce="0"
+            style="width: 49%"
+            option-value="value"
+            option-label="label"
+            label="Система налогообложения"
+            :options="barcodes"
+            v-model="barcodeVal"
+            use-input
+            emit-value
+          >
+            <template v-slot:no-option>
+              <q-item>
+                <q-item-section class="text-grey">No results</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
+          <q-select
+            filled
+            input-debounce="0"
+            style="width: 49%"
+            option-value="value"
+            option-label="label"
+            label="Признак предмета расчета"
+            :options="calculations"
+            v-model="calculationVal"
+            use-input
+            emit-value
+          >
+            <template v-slot:no-option>
+              <q-item>
+                <q-item-section class="text-grey">No results</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
+          <q-select
+            filled
+            input-debounce="0"
+            style="width: 49%"
+            option-value="value"
+            option-label="label"
+            label="Отдел"
+            :options="divisions"
+            v-model="divisionVal"
+            use-input
+            emit-value
+          >
+            <template v-slot:no-option>
+              <q-item>
+                <q-item-section class="text-grey">No results</q-item-section>
+              </q-item>
+            </template>
+          </q-select>
         </div>
       </template>
       <q-checkbox left-label v-model="left" label="Label on Left" />
@@ -77,11 +203,25 @@ const route = useRouter()
 
 const countryVal = ref('')
 const groupVal = ref('')
+const supplierVal = ref('')
+const weightVal = ref('')
+const barcode_nameVal = ref('')
+const accountingVal = ref('')
+const barcodeVal = ref('')
+const calculationVal = ref('')
+const divisionVal = ref('')
 
 onMounted(() => {
   store.dispatch('products/getAll')
   store.dispatch('country/getAll')
   store.dispatch('group/getAll')
+  store.dispatch('supplier/getAll')
+  store.dispatch('weight/getAll')
+  store.dispatch('barcode_name/getAll')
+  store.dispatch('accounting/getAll')
+  store.dispatch('barcode/getAll')
+  store.dispatch('calculation/getAll')
+  store.dispatch('division/getAll')
 })
 
 const countries = computed(() => {
@@ -98,6 +238,76 @@ const groups = computed(() => {
   const acc = []
 
   store.state.group.list.forEach(({ name }) => {
+    acc.push(name)
+  })
+
+  return acc
+})
+
+const suppliers = computed(() => {
+  const acc = []
+
+  store.state.supplier.list.forEach(({ name }) => {
+    acc.push(name)
+  })
+
+  return acc
+})
+
+const weights = computed(() => {
+  const acc = []
+
+  store.state.weight.list.forEach(({ name }) => {
+    acc.push(name)
+  })
+
+  return acc
+})
+
+const barcode_names = computed(() => {
+  const acc = []
+
+  store.state.barcode_name.list.forEach(({ name }) => {
+    acc.push(name)
+  })
+
+  return acc
+})
+
+const accountings = computed(() => {
+  const acc = []
+
+  store.state.accounting.list.forEach(({ name }) => {
+    acc.push(name)
+  })
+
+  return acc
+})
+
+const barcodes = computed(() => {
+  const acc = []
+
+  store.state.barcode.list.forEach(({ name }) => {
+    acc.push(name)
+  })
+
+  return acc
+})
+
+const divisions = computed(() => {
+  const acc = []
+
+  store.state.division.list.forEach(({ name }) => {
+    acc.push(name)
+  })
+
+  return acc
+})
+
+const calculations = computed(() => {
+  const acc = []
+
+  store.state.calculation.list.forEach(({ name }) => {
     acc.push(name)
   })
 

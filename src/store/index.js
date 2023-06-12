@@ -12,6 +12,13 @@ import { cancellation } from './modules/cancellation';
 import { inventory } from './modules/inventory';
 import { country } from './modules/country';
 import { group } from './modules/group';
+import { supplier } from './modules/supplier';
+import { weight } from './modules/weight';
+import { barcode_name } from './modules/barcode_name';
+import { accounting } from './modules/accounting';
+import { barcode } from './modules/barcode';
+import { calculation } from './modules/calculation';
+import { division } from './modules/division';
 
 const store = createStore({
     modules: {
@@ -26,7 +33,14 @@ const store = createStore({
         contractors,
         dialog,
         country,
-        group
+        group,
+        supplier,
+        weight,
+        barcode_name,
+        accounting,
+        barcode,
+        calculation,
+        division
     },
 });
 

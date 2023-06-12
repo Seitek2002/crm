@@ -154,10 +154,10 @@ export default [
     },
     {
         required: true,
-        name: 'barcode_name',
+        name: 'accounting',
         align: 'left',
         label: 'Особенности учета',
-        field: 'barcode_name',
+        field: 'accounting',
         type: 'select',
         options: [
             {
@@ -220,10 +220,10 @@ export default [
     },
     {
         required: true,
-        name: 'barcode',
+        name: 'calculation',
         align: 'left',
         label: 'Признак предмета расчета',
-        field: 'barcode',
+        field: 'calculation',
         type: 'select',
         options: [
             {
@@ -254,10 +254,10 @@ export default [
     },
     {
         required: true,
-        name: 'barcode',
+        name: 'division',
         align: 'left',
         label: 'Отдел',
-        field: 'barcode',
+        field: 'division',
         type: 'select',
         options: [
             {
