@@ -71,7 +71,7 @@ const logIn = () => {
         password: password.value,
     };
     store.dispatch('auth/login', user).then(
-        () => {
+        (data) => {
             router.push('/');
         },
         error => {

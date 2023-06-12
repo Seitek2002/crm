@@ -10,6 +10,9 @@ import { dialog } from './modules/dialog';
 import { receipt } from './modules/receipt';
 import { cancellation } from './modules/cancellation';
 import { inventory } from './modules/inventory';
+import { country } from './modules/country';
+import { group } from './modules/group';
+
 const store = createStore({
     modules: {
         // patient,
@@ -22,6 +25,8 @@ const store = createStore({
         auth,
         contractors,
         dialog,
+        country,
+        group
     },
 });
 
