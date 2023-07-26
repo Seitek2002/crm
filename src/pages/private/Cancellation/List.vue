@@ -3,63 +3,61 @@
         <AddView :button-text="'Добавить списывание'">
             <template v-slot:dialogLabel>Добавление списывания</template>
             <template v-slot:fields>
-                <div class="q-gutter-y-md row justify-between">
-                    <template v-for="field in requiredFields" :key="field.name">
-                        <template v-if="field.required">
-                            <q-select
-                                filled
-                                v-model="field.value"
-                                input-debounce="0"
-                                :label="field.label"
-                                :options="field.options"
-                                style="width: 49%"
-                                option-value="value"
-                                option-label="label"
-                                emit-value
-                                v-if="field.type == 'select'"
-                            >
-                                <template v-slot:no-option>
-                                    <q-item>
-                                        <q-item-section class="text-grey">
-                                            No results
-                                        </q-item-section>
-                                    </q-item>
-                                </template>
-                            </q-select>
-                            <q-input
-                                filled
-                                :label="field.label"
-                                stack-label
-                                v-model="field.value"
-                                style="width: 49%"
-                                :bg-color="field.required ? 'red' : ''"
-                                :label-color="field.required ? 'white' : ''"
-                                :color="field.required ? 'white' : 'black'"
-                                v-else
-                            />
-                        </template>
-                    </template>
-                </div>
+        <div class="q-gutter-y-md row justify-between">
+          <template v-for="field in requiredFields" :key="field.name">
+            <template v-if="field.required">
+              <q-select
+                filled
+                v-model="field.value"
+                input-debounce="0"
+                :label="field.label"
+                :options="field.options"
+                style="width: 49%"
+                option-value="value"
+                option-label="label"
+                emit-value
+                v-if="field.type == 'select'"
+              >
+                <template v-slot:no-option>
+                  <q-item>
+                    <q-item-section class="text-grey">
+                      No results
+                    </q-item-section>
+                  </q-item>
+                </template>
+              </q-select>
+              <q-input
+                filled
+                :label="field.label"
+                stack-label
+                v-model="field.value"
+                style="width: 49%"
+                v-else
+              />
             </template>
-            <template v-slot:actionButtons>
-                <q-btn class="bg-red-7" flat label="Закрыть" v-close-popup />
-                <q-btn
-                    class="bg-green-7"
-                    flat
-                    label="Создать"
-                    @click="handleCreate"
-                />
-            </template>
-        </AddView>
-        <q-table
-            :grid="$q.screen.xs"
-            flat
-            bordered
-            :rows="rows"
-            :columns="columns"
-            row-key="name"
-            @row-click="handleRowClick"
-        ></q-table>
+          </template>
+        </div>
+      </template>
+      <template v-slot:actionButtons>
+        <q-btn
+          style="color: #1976d2"
+          flat
+          label="Сохранить"
+          @click="handleCreate"
+        />
+        <q-btn flat label="Отмена" v-close-popup style="color: #1976d2" />
+      </template>
+    </AddView>
+<q-table
+      :grid="$q.screen.xs"
+      flat
+      bordered
+      :rows="rows"
+      :columns="columns"
+      row-key="name"
+      :filter="filter"
+      @row-click="handleRowClick"
+    ></q-table>
     </div>
 </template>
 

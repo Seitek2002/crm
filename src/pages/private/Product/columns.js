@@ -17,24 +17,6 @@ export default [
     },
     {
         required: true,
-        name: 'group',
-        align: 'left',
-        label: 'Группа',
-        field: 'group',
-        type: 'select',
-        options: [
-            {
-                label: 'Лекарство',
-                value: 'Лекарство',
-            },
-            {
-                label: 'Оборудование',
-                value: 'Оборудование',
-            },
-        ]
-    },
-    {
-        required: true,
         name: 'country',
         align: 'left',
         label: 'Страна',
@@ -65,6 +47,24 @@ export default [
     },
     {
         required: true,
+        name: 'group',
+        align: 'left',
+        label: 'Группы',
+        field: 'group',
+        type: 'select',
+        options: [
+            {
+                label: 'Лекарство',
+                value: 'Лекарство',
+            },
+            {
+                label: 'Оборудование',
+                value: 'Оборудование',
+            },
+        ]
+    },
+    {
+        required: true,
         name: 'supplier',
         align: 'left',
         label: 'Поставщик',
@@ -87,27 +87,6 @@ export default [
     },
     {
         required: true,
-        name: 'article',
-        align: 'left',
-        label: 'Артикул',
-        field: 'article',
-    },
-    {
-        required: true,
-        name: 'code',
-        align: 'left',
-        label: 'Код',
-        field: 'code',
-    },
-    {
-        required: true,
-        name: 'external_code',
-        align: 'left',
-        label: 'Внешний код',
-        field: 'external_code',
-    },
-    {
-        required: true,
         name: 'weight',
         align: 'left',
         label: 'Единица измерения',
@@ -120,20 +99,41 @@ export default [
             }
         ]
     },
-    {
-        required: true,
-        name: 'weight',
-        align: 'left',
-        label: 'Вес',
-        field: 'weight',
-    },
-    {
-        required: true,
-        name: 'volume',
-        align: 'left',
-        label: 'Объем',
-        field: 'volume',
-    },
+    // {
+    //     required: true,
+    //     name: 'article',
+    //     align: 'left',
+    //     label: 'Артикул',
+    //     field: 'article',
+    // },
+    // {
+    //     required: true,
+    //     name: 'code',
+    //     align: 'left',
+    //     label: 'Код',
+    //     field: 'code',
+    // },
+    // {
+    //     required: true,
+    //     name: 'external_code',
+    //     align: 'left',
+    //     label: 'Внешний код',
+    //     field: 'external_code',
+    // },
+    // {
+    //     required: true,
+    //     name: 'weight',
+    //     align: 'left',
+    //     label: 'Вес',
+    //     field: 'weight',
+    // },
+    // {
+    //     required: true,
+    //     name: 'volume',
+    //     align: 'left',
+    //     label: 'Объем',
+    //     field: 'volume',
+    // },
     {
         required: true,
         name: 'barcode_name',
@@ -166,20 +166,20 @@ export default [
             },
         ]
     },
-    {
-        required: true,
-        name: 'barcode_name',
-        align: 'left',
-        label: 'Штрихкод имя',
-        field: 'barcode_name',
-    },
-    {
-        required: true,
-        name: 'barcode',
-        align: 'left',
-        label: 'Штрихкод',
-        field: 'barcode',
-    },
+    // {
+    //     required: true,
+    //     name: 'barcode_name',
+    //     align: 'left',
+    //     label: 'Штрихкод имя',
+    //     field: 'barcode_name',
+    // },
+    // {
+    //     required: true,
+    //     name: 'barcode',
+    //     align: 'left',
+    //     label: 'Штрихкод',
+    //     field: 'barcode',
+    // },
     {
         required: true,
         name: 'barcode',
@@ -266,70 +266,70 @@ export default [
             },
         ]
     },
-    {
-        required: true,
-        name: 'unit',
-        align: 'left',
-        label: 'Юнит',
-        field: 'unit',
-    },
-    {
-        required: true,
-        name: 'department',
-        align: 'left',
-        label: 'Департамент',
-        field: 'department',
-    },
-    {
-        required: true,
-        name: 'vat',
-        align: 'left',
-        label: 'ВАТ',
-        field: 'var',
-    },
-    {
-        required: true,
-        name: 'accountingFeatures',
-        align: 'left',
-        label: 'Особенности учета',
-        field: 'accountingFeatures',
-    },
-    {
-        required: true,
-        name: 'payment_attribute',
-        align: 'left',
-        label: 'Платеж',
-        field: 'payment_attribute',
-    },
+    // {
+    //     required: true,
+    //     name: 'unit',
+    //     align: 'left',
+    //     label: 'Юнит',
+    //     field: 'unit',
+    // },
+    // {
+    //     required: true,
+    //     name: 'department',
+    //     align: 'left',
+    //     label: 'Департамент',
+    //     field: 'department',
+    // },
+    // {
+    //     required: true,
+    //     name: 'vat',
+    //     align: 'left',
+    //     label: 'ВАТ',
+    //     field: 'var',
+    // },
+    // {
+    //     required: true,
+    //     name: 'accountingFeatures',
+    //     align: 'left',
+    //     label: 'Особенности учета',
+    //     field: 'accountingFeatures',
+    // },
+    // {
+    //     required: true,
+    //     name: 'payment_attribute',
+    //     align: 'left',
+    //     label: 'Платеж',
+    //     field: 'payment_attribute',
+    // },
 
-    {
-        name: 'cash_receipt',
-        align: 'left',
-        label: 'Квитанция об оплате',
-        field: 'cash_receipt',
-    },
-    {
-        name: 'min_price',
-        align: 'left',
-        label: 'Минимальная цена',
-        field: 'min_price',
-    },
-    {
-        name: 'purchase_price',
-        align: 'left',
-        label: 'Цена покупки',
-        field: 'purchase_price',
-    },
-    {
-        name: 'selling_price',
-        align: 'left',
-        label: 'Цена продажи',
-        field: 'selling_price',
-    },
-    {
-        name: 'allow_discount',
-        align: 'left',
-        label: 'Дисконт',
-        field: 'allow_discount',
-    },
+    // {
+    //     name: 'cash_receipt',
+    //     align: 'left',
+    //     label: 'Квитанция об оплате',
+    //     field: 'cash_receipt',
+    // },
+    // {
+    //     name: 'min_price',
+    //     align: 'left',
+    //     label: 'Минимальная цена',
+    //     field: 'min_price',
+    // },
+    // {
+    //     name: 'purchase_price',
+    //     align: 'left',
+    //     label: 'Цена покупки',
+    //     field: 'purchase_price',
+    // },
+    // {
+    //     name: 'selling_price',
+    //     align: 'left',
+    //     label: 'Цена продажи',
+    //     field: 'selling_price',
+    // },
+    // {
+    //     name: 'allow_discount',
+    //     align: 'left',
+    //     label: 'Дисконт',
+    //     field: 'allow_discount',
+    // },
 ];

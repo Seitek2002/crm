@@ -2,181 +2,53 @@
   <div>
     <AddView :button-text="'Добавить товар'">
       <template v-slot:dialogLabel>Добавление товара</template>
-      <template v-slot:fields>
+     <template v-slot:fields>
         <div class="q-gutter-y-md row justify-between">
-          <q-input filled label="Наименование товара" stack-label style="width: 49%" />
-          <q-input filled label="Описание" stack-label style="width: 49%" />
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Страна"
-            :options="countries"
-            v-model="countryVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
+          <template v-for="field in requiredFields" :key="field.name">
+            <template v-if="field.required">
+              <q-select
+                filled
+                v-model="field.value"
+                input-debounce="0"
+                :label="field.label"
+                :options="field.options"
+                style="width: 49%"
+                option-value="value"
+                option-label="label"
+                emit-value
+                v-if="field.type == 'select'"
+              >
+                <template v-slot:no-option>
+                  <q-item>
+                    <q-item-section class="text-grey">
+                      No results
+                    </q-item-section>
+                  </q-item>
+                </template>
+              </q-select>
+              <q-input
+                filled
+                :label="field.label"
+                stack-label
+                v-model="field.value"
+                style="width: 49%"
+                v-else
+              />
             </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Группы"
-            :options="groups"
-            v-model="groupVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Поставщик"
-            :options="suppliers"
-            v-model="supplierVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Единица измерения"
-            :options="weights"
-            v-model="weightVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="НДС"
-            :options="barcode_names"
-            v-model="barcode_nameVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Особенности учета"
-            :options="accountings"
-            v-model="accountingVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Система налогообложения"
-            :options="barcodes"
-            v-model="barcodeVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Признак предмета расчета"
-            :options="calculations"
-            v-model="calculationVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
-          <q-select
-            filled
-            input-debounce="0"
-            style="width: 49%"
-            option-value="value"
-            option-label="label"
-            label="Отдел"
-            :options="divisions"
-            v-model="divisionVal"
-            use-input
-            emit-value
-          >
-            <template v-slot:no-option>
-              <q-item>
-                <q-item-section class="text-grey">No results</q-item-section>
-              </q-item>
-            </template>
-          </q-select>
+          </template>
         </div>
       </template>
-      <q-checkbox left-label v-model="left" label="Label on Left" />
       <template v-slot:actionButtons>
-        <q-btn style="color: #1976d2" flat label="Сохранить" @click="handleCreate" />
+        <q-btn
+          style="color: #1976d2"
+          flat
+          label="Сохранить"
+          @click="handleCreate"
+        />
         <q-btn flat label="Отмена" v-close-popup style="color: #1976d2" />
       </template>
     </AddView>
-    <q-table
+<q-table
       :grid="$q.screen.xs"
       flat
       bordered
@@ -315,15 +187,15 @@ const calculations = computed(() => {
 })
 
 const rows = computed(() => store.state.products.list)
-// const requiredFields = ref(
-//   columns.map(col => ({
-//     name: col.name,
-//     label: col.label,
-//     required: !!col?.required,
-//     type: col?.type ?? '',
-//     options: col?.type == 'select' ? col.options : '',
-//   }))
-// )
+const requiredFields = ref(
+  columns.map(col => ({
+    name: col.name,
+    label: col.label,
+    required: !!col?.required,
+    type: col?.type ?? '',
+    options: col?.type == 'select' ? col.options : '',
+  }))
+)
 function handleRowClick(e, row) {
   route.push(`/product/detail/${row.id}`)
 }
