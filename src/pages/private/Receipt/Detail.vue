@@ -2,12 +2,7 @@
   <div>
     <q-page>
       <div class="q-pa-md q-gutter-sm">
-        <q-btn
-          label="Назад"
-          class="q-my-md"
-          color="red"
-          @click="route.back()"
-        />
+        <q-btn label="Назад" class="q-my-md" color="red" @click="route.back()" />
       </div>
       <q-card style="width: auto">
         <q-expansion-item :label="`Основная информация`">
@@ -16,8 +11,8 @@
               <div class="q-pa-md">
                 <q-list class="product-item">
                   <span>Утверждение:</span>
-                  <span v-if="receipt.approved"> Одобрено </span>
-                  <span v-else> Отказано </span>
+                  <span v-if="receipt.approved">Одобрено</span>
+                  <span v-else>Отказано</span>
                 </q-list>
                 <q-list class="product-item">
                   <span>Комментарий:</span>
@@ -37,32 +32,34 @@
                     {{ receipt.expenses }}
                   </span>
                 </q-list>
-                <q-list class="product-item"
-                  ><span>ID:</span> <span>{{ receipt.id }}</span></q-list
-                >
+                <q-list class="product-item">
+                  <span>ID:</span>
+                  <span>{{ receipt.id }}</span>
+                </q-list>
               </div>
             </template>
             <template v-slot:after>
               <div class="q-pa-md">
-                <q-list class="product-item"
-                  ><span>Номер:</span> <span>{{ receipt.number }}</span></q-list
-                >
-                <q-list class="product-item"
-                  ><span>Продукт:</span>
-                  <span>{{ receipt.product }}</span></q-list
-                >
-                <q-list class="product-item"
-                  ><span>Проект:</span>
-                  <span>{{ receipt.project }}</span></q-list
-                >
-                <q-list class="product-item"
-                  ><span>Количество:</span>
-                  <span>{{ receipt.quantity }}</span></q-list
-                >
-                <q-list class="product-item"
-                  ><span>Склад:</span>
-                  <span>{{ receipt.warehouse }}</span></q-list
-                >
+                <q-list class="product-item">
+                  <span>Номер:</span>
+                  <span>{{ receipt.number }}</span>
+                </q-list>
+                <q-list class="product-item">
+                  <span>Продукт:</span>
+                  <span>{{ receipt.product }}</span>
+                </q-list>
+                <q-list class="product-item">
+                  <span>Проект:</span>
+                  <span>{{ receipt.project }}</span>
+                </q-list>
+                <q-list class="product-item">
+                  <span>Количество:</span>
+                  <span>{{ receipt.quantity }}</span>
+                </q-list>
+                <q-list class="product-item">
+                  <span>Склад:</span>
+                  <span>{{ receipt.warehouse }}</span>
+                </q-list>
               </div>
             </template>
           </q-splitter>
@@ -73,20 +70,20 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-const route = useRouter();
-const store = useStore();
-const receipt = computed(() => store.state.receipt.detail);
+import { computed, onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+const route = useRouter()
+const store = useStore()
+const receipt = computed(() => store.state.receipt.detail)
 
-const splitterModel = ref(50);
+const splitterModel = ref(50)
 
 onMounted(() => {
-  const receiptId = route.currentRoute.value.params.id;
-  store.dispatch("receipt/getOneById", receiptId);
-  console.log(receipt);
-});
+  const receiptId = route.currentRoute.value.params.id
+  store.dispatch('receipt/getOneById', receiptId)
+  console.log(receipt)
+})
 </script>
 
 <style>

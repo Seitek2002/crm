@@ -26,14 +26,7 @@
                   </q-item>
                 </template>
               </q-select>
-              <q-input
-                filled
-                :label="field.label"
-                stack-label
-                v-model="field.value"
-                style="width: 49%"
-                v-else
-              />
+              <Input v-else :placeholder="field.label" :model="field.value" />
             </template>
           </template>
         </div>
@@ -68,6 +61,7 @@ import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
 import AddView from "../../../components/UI/Dialog/AddView.vue";
+import Input from '../../../components/UI/inputs/Input.vue'
 
 const store = useStore();
 const $q = useQuasar();
@@ -127,3 +121,10 @@ const requiredFields = ref(
 );
 console.log(requiredFields.value);
 </script>
+<style scoped  lang="scss">
+.q-field__control.relative-position.row.no-wrap  {
+   border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+  background: white ; 
+}
+</style>

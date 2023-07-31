@@ -2,53 +2,40 @@
   <div>
     <AddView :button-text="'Добавить товар'">
       <template v-slot:dialogLabel>Добавление товара</template>
-     <template v-slot:fields>
+      <template v-slot:fields>
         <div class="q-gutter-y-md row justify-between">
           <template v-for="field in requiredFields" :key="field.name">
             <template v-if="field.required">
-              <q-select
+              <q-select 
                 filled
                 v-model="field.value"
                 input-debounce="0"
                 :label="field.label"
                 :options="field.options"
                 style="width: 49%"
-                option-value="value"
+                option-value="value" 
                 option-label="label"
                 emit-value
                 v-if="field.type == 'select'"
               >
                 <template v-slot:no-option>
-                  <q-item>
-                    <q-item-section class="text-grey">
-                      No results
-                    </q-item-section>
+                  <q-item style="background: rgba(0,0,0,0); ">
+                    <q-item-section class="text-grey">No results</q-item-section>
                   </q-item>
                 </template>
-              </q-select>
-              <q-input
-                filled
-                :label="field.label"
-                stack-label
-                v-model="field.value"
-                style="width: 49%"
-                v-else
-              />
+              </q-select> 
+              <Input v-else :placeholder="field.label" :model="field.value" />
             </template>
           </template>
         </div>
       </template>
+
       <template v-slot:actionButtons>
-        <q-btn
-          style="color: #1976d2"
-          flat
-          label="Сохранить"
-          @click="handleCreate"
-        />
+        <q-btn style="color: #1976d2" flat label="Сохранить" @click="handleCreate" />
         <q-btn flat label="Отмена" v-close-popup style="color: #1976d2" />
       </template>
     </AddView>
-<q-table
+    <q-table
       :grid="$q.screen.xs"
       flat
       bordered
@@ -66,6 +53,7 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
 import AddView from '../../../components/UI/Dialog/AddView.vue'
+import Input from '../../../components/UI/inputs/Input.vue'
 import columns from './columns'
 
 let filter = ref('')
@@ -236,4 +224,7 @@ function handleCreate() {
     }
   )
 }
-</script>
+</script> 
+<style>
+
+</style>

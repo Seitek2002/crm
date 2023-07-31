@@ -25,15 +25,8 @@
                     </q-item-section>
                   </q-item>
                 </template>
-              </q-select>
-              <q-input
-                filled
-                :label="field.label"
-                stack-label
-                v-model="field.value"
-                style="width: 49%"
-                v-else
-              />
+              </q-select> 
+              <Input v-else :placeholder="field.label" :model="field.value" />
             </template>
           </template>
         </div>
@@ -68,6 +61,7 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { useQuasar } from 'quasar';
 import AddView from '../../../components/UI/Dialog/AddView.vue';
+import Input from '../../../components/UI/inputs/Input.vue'
 
 const store = useStore();
 const $q = useQuasar();

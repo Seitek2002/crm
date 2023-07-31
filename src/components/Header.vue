@@ -58,7 +58,12 @@
           <q-item-label caption>просмотр пациентов</q-item-label>
         </q-item-section>
       </q-item>
-      <q-expansion-item class="animate__animated animate__backInLeft animate_store" icon="store" label="Склад" style="color: #9c27b0;">
+      <q-expansion-item
+        class="animate__animated animate__backInLeft animate_store"
+        icon="store"
+        label="Склад"
+        style="color: #9c27b0"
+      >
         <q-item class="animate__animated animate__backInLeft animate_inventory" clickable to="/inventory">
           <q-item-section avatar>
             <q-icon name="inventory" color="purple"></q-icon>
