@@ -15,6 +15,7 @@ defineProps(['placeholder', 'model'])
 .text-field {
   margin-bottom: 1rem;
   width: 49%;
+  font-family: "Montserrat";
 }
 
 .text-field__label {
