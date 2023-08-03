@@ -5,10 +5,9 @@
         <q-btn label="Назад" class="q-my-md" color="red" @click="route.back()" />
       </div>
       <q-card v-if="contractor" style="width:auto;">
-        <q-expansion-item :label="`Название: ${contractor.name}`">
-          <q-splitter v-model="splitterModel">
-            <template v-slot:before>
-              <div class="q-pa-md">
+        <q-expansion-item v-model="active" style="pointer-events: none;" :label="`Название: ${contractor.name}`">
+          <div style="display: flex; align-items: start; ">
+              <div style="width: 100%;">
 
                 <q-list class="product-item">
                   <span>Адрес:</span>
@@ -96,9 +95,7 @@
                 </q-list>
 
               </div>
-            </template>
-            <template v-slot:after>
-              <div class="q-pa-md">
+              <div style="width: 100%;">
                 <q-list class="product-item"><span>КПП:</span> <span>{{ contractor.kpp }}</span></q-list>
                 <q-list class="product-item"><span>Адрес юридического лица:</span> <span>{{
                   contractor.legal_entity_address }}</span></q-list>
@@ -116,8 +113,7 @@
                 <q-list class="product-item"><span>Статус:</span> <span>{{ contractor.status }}</span></q-list>
                 <q-list class="product-item"><span>Пользователь:</span> <span>{{ contractor.user }}</span></q-list>
               </div>
-            </template>
-          </q-splitter>
+          </div>
         </q-expansion-item>
       </q-card>
       <span class="text-h6" v-else>Контрагент не найден</span>
@@ -133,7 +129,7 @@ const route = useRouter()
 const store = useStore()
 const contractor = computed(() => store.state.contractors.detail)
 const data = computed(() => store.state.products.detail)
-const splitterModel = ref(50)
+const active = ref(true)
 
 
 onMounted(() => {
@@ -142,8 +138,27 @@ onMounted(() => {
   console.log(contractor);
 })
 </script>
-<style>
+<style lang="scss"> 
 .product-item {
   display: flex;
   justify-content: space-between;
-}</style>
+}
+.product-item {
+  display: flex;
+  justify-content: space-between;
+
+  span:not(:first-child) {
+    padding: 10px 5px;
+    width: 100%;
+    border: 1px solid #c9c9c9;
+    display: flex;
+    justify-content: end;
+  }
+
+  span:not(:last-child) {
+    padding: 10px 5px;
+    width: 100%;
+    border: 1px solid #c9c9c9;
+  }
+}
+</style>

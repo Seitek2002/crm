@@ -7,7 +7,7 @@
           <template v-for="field in requiredFields" :key="field.name">
             <template v-if="field.required">
               <q-select
-                filled
+                filled 
                 v-model="field.value"
                 input-debounce="0"
                 :label="field.label"

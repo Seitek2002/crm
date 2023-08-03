@@ -5,10 +5,9 @@
         <q-btn label="Назад" class="q-my-md" color="red" @click="route.back()" />
       </div>
       <q-card style="width: auto">
-        <q-expansion-item :label="`Основная информация`">
-          <q-splitter v-model="splitterModel">
-            <template v-slot:before>
-              <div class="q-pa-md">
+        <q-expansion-item v-model="active" style="pointer-events: none;" :label="`Основная информация`">
+          <div>
+              <div style="width: 100%;">
                 <q-list class="product-item">
                   <span>Утверждение:</span>
                   <span v-if="receipt.approved">Одобрено</span>
@@ -37,9 +36,7 @@
                   <span>{{ receipt.id }}</span>
                 </q-list>
               </div>
-            </template>
-            <template v-slot:after>
-              <div class="q-pa-md">
+              <div style="width: 100%;">
                 <q-list class="product-item">
                   <span>Номер:</span>
                   <span>{{ receipt.number }}</span>
@@ -61,8 +58,7 @@
                   <span>{{ receipt.warehouse }}</span>
                 </q-list>
               </div>
-            </template>
-          </q-splitter>
+          </div>
         </q-expansion-item>
       </q-card>
     </q-page>
@@ -78,6 +74,7 @@ const store = useStore()
 const receipt = computed(() => store.state.receipt.detail)
 
 const splitterModel = ref(50)
+const active = ref(true)
 
 onMounted(() => {
   const receiptId = route.currentRoute.value.params.id

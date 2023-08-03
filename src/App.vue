@@ -18,4 +18,7 @@
 .q-field__control.relative-position.row.no-wrap {
   background: white;
 }
+.q-item__section--main ~ .q-item__section--side {
+    display: none;
+}
 </style>
